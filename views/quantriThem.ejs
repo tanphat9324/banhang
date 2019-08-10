@@ -1,0 +1,60 @@
+<%include template/header1 %>
+
+      
+      <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Thêm mới dữ liệu</h1>
+            <p class="lead">Vào MongoDB</p>
+            <hr class="my-2">
+           
+        </div>
+
+        <form action="/quantriThem" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="cat">Danh Mục</label>
+          <input type="text" class="form-control" name="cat" id="" aria-describedby="helpId" placeholder="men, women or tool">
+          <small id="helpId" class="form-text text-muted">Categories</small>
+        </div>
+
+        <div class="form-group">
+          <label for="anhsp">Ảnh sản phẩm</label>
+          <input type="file" class="form-control-file" name="anhsp" id="" placeholder="" aria-describedby="fileHelpId">
+          <small id="fileHelpId" class="form-text text-muted">Ảnh sản phẩm</small>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Tiêu đề</label>
+          <input type="text" class="form-control" name="title" id="" aria-describedby="helpId" placeholder="">
+          <small id="helpId" class="form-text text-muted">Title</small>
+        </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio">Sale
+            </label>
+        </div>
+          
+        <div class="form-group">
+              <label for="price">Giá</label>
+              <input type="text" class="form-control" name="price" id="" aria-describedby="helpId" placeholder="">
+              <small id="helpId" class="form-text text-muted">Price</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="discount">Khuyến mãi</label>
+            <input type="text" class="form-control" name="discount" id="" aria-describedby="helpId" placeholder="">
+            <small id="helpId" class="form-text text-muted">Discount</small>
+      </div>
+
+        <button type="submit" class="btn btn-primary">Xác Nhận</button>
+        </form>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
