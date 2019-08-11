@@ -15,14 +15,14 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Luong Tan Phat' });
-});
+// /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Luong Tan Phat' });
+// });
 /* Xem du lieu. */
-router.get('/xem', function(req, res, next) {
+router.get('/', function(req, res, next) {
   danhsachModel.find({},function(err,dulieu){
-    res.render('xem', { title: 'Trang chu',data:dulieu });    
+    res.render('index', { title: 'Trang chu',data:dulieu });    
   })
 });
 
@@ -46,17 +46,23 @@ router.get('/quantrisua/:idcansua', function(req, res, next) {
     })
 });
 /* Sua du lieu post */
-router.post('/quantrisua/:idcansua', function(req, res, next) {
+router.post('/quantrisua/:idcansua',upload.single('anhsp'), function(req, res, next) {
   var id2 = req.params.idcansua;
   
   danhsachModel.findById(id2,function(err,dulieu){
     if(err) return handleError(err);
+    // console.log(dulieu,"file du lieu");
+    
     dulieu.cat=req.body.cat;
+    console.log(dulieu.cat);
+    dulieu.info=req.body.info;
+    dulieu.anhsp=req.file.filename;
     dulieu.title=req.body.title; 
     dulieu.price=req.body.price; 
     dulieu.discount=req.body.discount; 
+    // console.log(dulieu,"Post du lieu",req.body);
     dulieu.save();
-    res.redirect('/xem');
+    res.redirect('/');
   });
   
 });
@@ -75,13 +81,11 @@ var phantu={
     'price':req.body.price,
     'discount':req.body.discount
 }
+// console.log("Post du lieu",req.body);
 var dulieu=new danhsachModel(phantu);
 dulieu.save()
-console.log(req.file);
-res.redirect('/xem')
+// console.log(req.file);
+res.redirect('/')
 });
-// /* Lay du lieu Anh */
-// router.post('/quantriThem',upload.single('anhsp'), function(req, res, next) {
-//   res.render('index', { title: 'Luong Tan Phat' });
-// });
+
 module.exports = router;

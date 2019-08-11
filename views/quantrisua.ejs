@@ -11,8 +11,8 @@
         <%data.forEach(function(mot){ %>
         <form action="/quantrisua/<%=mot._id%>" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="danhmuc">Danh Mục</label>
-          <input type="text" class="form-control" name="danhmuc" id="" aria-describedby="helpId" placeholder="men, women or tool" value="<%=mot.cat%>">
+          <label for="cat">Danh Mục</label>
+          <input type="text" class="form-control" name="cat" id="" aria-describedby="helpId" placeholder="men, women or tool" value="<%=mot.cat%>">
           <small id="helpId" class="form-text text-muted">Categories</small>
         </div>
 
